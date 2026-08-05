@@ -26,7 +26,7 @@
 
 **817 production-grade cybersecurity skills · 29 security domains · 6 framework mappings · 26+ AI platforms**
 
-[Get Started](#quick-start) · [What's Inside](#whats-inside--29-security-domains) · [Frameworks](#five-frameworks-one-skill-library) · [Platforms](#compatible-platforms) · [Contributing](#contributing)
+[Get Started](#quick-start) · [What's Inside](#whats-inside--29-security-domains) · [Frameworks](#six-frameworks-one-skill-library) · [Platforms](#compatible-platforms) · [Contributing](#contributing) · [Installation Guide](INSTALLATION.md) · [Quick Start Guide](QUICK_START.md)
 
 </div>
 
