@@ -38,6 +38,40 @@ The `fixed.py` file shows the secure implementation of the login function using 
 
 **Key change**: String interpolation (`f"..."`) → Parameterized query (`?` placeholders with tuple params).
 
+## Expected Output Comparison
+
+### Vulnerable Version Output:
+```
+=== Vulnerable Login System ===
+Try logging in with admin:admin123
+
+--- Normal Login ---
+Executing query: SELECT * FROM users WHERE username = 'admin' AND password = 'admin123'
+Login successful! Welcome, admin
+
+--- SQL Injection Attack ---
+Using malicious input: ' OR '1'='1
+Executing query: SELECT * FROM users WHERE username = '' OR '1'='1' AND password = 'anything'
+Login successful! Welcome, admin  # ❌ Vulnerable: injection succeeded!
+```
+
+### Fixed Version Output:
+```
+=== Secure Login System ===
+Try logging in with admin:admin123
+
+--- Normal Login ---
+Executing query: SELECT * FROM users WHERE username = ? AND password = ?
+With parameters: username=admin, password=admin123
+Login successful! Welcome, admin
+
+--- SQL Injection Attempt ---
+Using malicious input: ' OR '1'='1
+Executing query: SELECT * FROM users WHERE username = ? AND password = ?
+With parameters: username=' OR '1'='1, password=anything
+Login failed!  # ✅ Secure: injection blocked!
+```
+
 ## How to Run
 
 1. Navigate to this directory: `cd skills/sql_injection`
